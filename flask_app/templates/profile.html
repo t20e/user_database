@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <center>
+        <div style="border: 2px solid black;height: 500px; width: 600px;border-radius: 50px;background-color:steelblue ;">
+            <h1 style="color: white;">Hi {{user.first_name}}</h1>
+            <h6 style="position: relative; left: 200px;top: -50px;""><a href="{{'/'}}" style=" margin-left: 20px; color: white;">Main Page</a></h6>
+            <div style="width: 100%; border: 2px solid black;"></div>
+            <div style="color: white;">
+                <p>
+                    Full Name: {{user.first_name + ' ' + user.last_name}}
+                </p>
+                <p>
+                    Email: {{user.email}}
+                </p>
+                <p>
+                    Created_at: {{user.created_at}}
+                </p>
+                {% if user.updated_at == none%}
+                <p></p>
+                {%else%}
+                <p>
+                    Updated_at: {{user.updated_at}}
+                </p>
+                {%endif%}
+                <a href="/edit/{{user.id}}" >Edit</a>
+                <a href="/delete/{{user.id}}">Delete</a>
+            </div>
+          </div>
+    </center>
+</body>
+</html>
